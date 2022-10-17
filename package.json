@@ -1,0 +1,22 @@
+{
+  "name": "share-pin",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "format:check": "prettier --check .",
+    "lint:check": "eslint .",
+    "build-all": "cd client && yarn build && cd ../ && cd api && yarn build",
+    "test-all": "cd client && yarn test && cd ../ && cd api && yarn test",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.1.2",
+    "@commitlint/config-conventional": "^17.1.0",
+    "@typescript-eslint/eslint-plugin": "^5.40.0",
+    "@typescript-eslint/parser": "^5.40.0",
+    "eslint": "^8.25.0",
+    "eslint-config-prettier": "^8.5.0",
+    "husky": "^8.0.1",
+    "prettier": "^2.7.1"
+  }
+}

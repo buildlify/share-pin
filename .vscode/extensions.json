@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "eamodio.gitlens",
+    "streetsidesoftware.code-spell-checker",
+    "bradlc.vscode-tailwindcss",
+    "csstools.postcss",
+    "Prisma.prisma",
+    "ms-azuretools.vscode-docker"
+  ]
+}

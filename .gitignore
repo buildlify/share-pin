@@ -1,0 +1,24 @@
+# Logs & Node
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+node_modules
+
+# Env
+.env
+
+# Builds
+dist
+build
+
+# Misc
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.local
