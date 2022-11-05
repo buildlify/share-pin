@@ -2,6 +2,6 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 yarn format:check &&
-yarn lint:check &&
-yarn test-all &&
-yarn build-all
+yarn lint:check
+# yarn test-all &&
+# yarn build-all

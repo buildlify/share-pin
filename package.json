@@ -6,7 +6,7 @@
     "format:check": "prettier --check .",
     "lint:check": "eslint .",
     "build-all": "cd client && yarn build && cd ../ && cd api && yarn build",
-    "test-all": "cd client && yarn test && cd ../ && cd api && yarn test",
+    "test-all": "cd client && yarn test && cd ../ && cd api && yarn test && cd ../ && cd app && yarn test",
     "prepare": "husky install"
   },
   "devDependencies": {

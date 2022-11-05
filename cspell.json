@@ -1,5 +1,19 @@
 {
   "version": "0.2",
   "language": "en",
-  "words": ["sharepin", "commitlint", "tailwindcss", "pino", "snipd"]
+  "words": [
+    "sharepin",
+    "commitlint",
+    "tailwindcss",
+    "daisyui",
+    "tanstack",
+    "mantine",
+    "zustand",
+    "heroicons",
+    "hookform",
+    "pino",
+    "snipd",
+    "sendgrid",
+    "middlewares"
+  ]
 }

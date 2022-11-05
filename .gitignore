@@ -1,4 +1,4 @@
-# Logs & Node
+# logs & node
 logs
 *.log
 npm-debug.log*
@@ -6,14 +6,24 @@ yarn-debug.log*
 yarn-error.log*
 node_modules
 
-# Env
+# app
+.expo/
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+
+# env
 .env
 
-# Builds
+# builds
 dist
 build
 
-# Misc
+# misc
 .idea
 .DS_Store
 *.suo
