@@ -42,11 +42,11 @@ describe('auth routes', () => {
     });
   });
   describe('validate register token route', () => {
-    describe('if valid register token is passed', () => {
+    describe('if valid register token is passed through params', () => {
       it('should return status code 200 and response that token is valid', async () => {
-        const { statusCode, body } = await supertest(app)
-          .post('/api/v1/auth/validate-register-token')
-          .send(authFixtures.tokenInput);
+        const { statusCode, body } = await supertest(app).get(
+          `/api/v1/auth/validate-register-token/${authFixtures.registerToken}`,
+        );
 
         expect(statusCode).toBe(200);
         expect(body).toEqual(authFixtures.tokenPayloadValid);
@@ -54,21 +54,12 @@ describe('auth routes', () => {
     });
     describe('if invalid or expired register token is passed', () => {
       it('should return status code 401 and response that token is not valid', async () => {
-        const { statusCode, body } = await supertest(app)
-          .post('/api/v1/auth/validate-register-token')
-          .send({ token: 'invalid or expired token' });
+        const { statusCode, body } = await supertest(app).get(
+          '/api/v1/auth/validate-register-token/invalid-token',
+        );
 
         expect(statusCode).toBe(401);
         expect(body).toEqual(authFixtures.tokenPayloadInvalid);
-      });
-    });
-    describe('if no token is passed', () => {
-      it('should return status code 400', async () => {
-        const { statusCode } = await supertest(app).post(
-          '/api/v1/auth/validate-register-token',
-        );
-
-        expect(statusCode).toBe(400);
       });
     });
   });
@@ -92,7 +83,7 @@ describe('auth routes', () => {
           .post('/api/v1/auth/register')
           .send(authFixtures.registerUserInput);
 
-        expect(checkIfUserExistsMock).toBeCalledTimes(1);
+        expect(checkIfUserExistsMock).toBeCalledTimes(2);
         expect(createNewUserMock).toBeCalledTimes(1);
         expect(createSessionMock).toBeCalledTimes(1);
 
@@ -102,7 +93,7 @@ describe('auth routes', () => {
     describe('if invalid email is passed', () => {
       it('should return status code 400 and response that token is not valid', async () => {
         const { statusCode } = await supertest(app)
-          .post('/api/v1/auth/validate-register-token')
+          .post('/api/v1/auth/register')
           .send(authFixtures.registerUserInputInvalidEmail);
 
         expect(statusCode).toBe(400);
@@ -111,7 +102,7 @@ describe('auth routes', () => {
     describe('if username with less than 3 characters is passed', () => {
       it('should return status code 400', async () => {
         const { statusCode } = await supertest(app)
-          .post('/api/v1/auth/validate-register-token')
+          .post('/api/v1/auth/register')
           .send(authFixtures.registerUserInputInvalidUsername);
 
         expect(statusCode).toBe(400);
@@ -120,7 +111,7 @@ describe('auth routes', () => {
     describe('if password with less than 8 characters is passed', () => {
       it('should return status code 400', async () => {
         const { statusCode } = await supertest(app)
-          .post('/api/v1/auth/validate-register-token')
+          .post('/api/v1/auth/register')
           .send(authFixtures.registerUserInputInvalidPassword);
 
         expect(statusCode).toBe(400);
